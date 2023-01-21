@@ -23,8 +23,8 @@ def handle_cert_local(cert_path):
     if path.exists(cert_path) and path.isfile(cert_path):
         cert_client = x509.load_pem_x509_certificate(
             open(cert_path, 'rb').read(), default_backend())
-        print(dir(cert_client))
-        print(cert_client.issuer, cert_client.version, cert_client.subject)
+        #print(dir(cert_client))
+        #print(cert_client.issuer, cert_client.version, cert_client.subject)
         return cert_client
     else:
         print("there is no certificate issued for client")
@@ -44,6 +44,7 @@ def handle_cert(certif_data):
 
 class CaClient:
     def __init__(self, username):
+        self.connection = None
         self.username = username
 
     def generate_key(self):
@@ -137,8 +138,6 @@ class CaClient:
     def verify_cert(self):
         cert_client = handle_cert_local('./client_cert.pem')
         cert = cert_client.public_bytes(serialization.Encoding.PEM).decode()
-        print(cert)
-        print(cert_client)
         self.send('verify', cert)
         self.channel.start_consuming()
 

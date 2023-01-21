@@ -9,7 +9,6 @@ import time
 class LoginPage:
 
     def Login(self, event=None):
-
         if self.USERNAME.get() == "" or self.PASSWORD.get() == "":
             self.error_label.config(
                 text="Please complete the required field!", fg="#0F0F0F", bg="#33FF33")
@@ -17,7 +16,9 @@ class LoginPage:
             ldap_s = LdapService(admin_pwd="osboxes.org")
             result = ldap_s.login(username=self.USERNAME.get(),
                                   password=self.PASSWORD.get())
+            print(result);
             if not result:
+                print ("ldad connect success");
                 # self.USERNAME.set("")
                 # self.PASSWORD.set("")
                 # self.error_label.config(
@@ -25,13 +26,12 @@ class LoginPage:
                 client = CaClient(self.USERNAME)
                 client.connect()
                 client.verify_cert()
-                print(client.cert_is_ok);
+                print("cert is ok  : " + client.cert_is_ok);
                 if client.cert_is_ok == "Ok":
                     self.HomeWindow()
                 else:
                     self.error_label.config(
                         text="Access denied -- Pirate Alert --", fg="#0F0F0F", bg="#33FF33")
-
             else:
                 self.error_label.config(
                     text=result, fg="#0F0F0F", bg="#33FF33")

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import OpenSSL.crypto
 import pika
 from os import path
 import datetime
@@ -27,7 +28,7 @@ key = None
 def generate_or_load():
     global cert
     global key
-    if(path.isfile(CA_CERT_PATH) and path.exists(CA_CERT_PATH) and path.isfile(CA_KEY_PATH) and path.exists(CA_KEY_PATH)):
+    if path.isfile(CA_CERT_PATH) and path.exists(CA_CERT_PATH) and path.isfile(CA_KEY_PATH) and path.exists(CA_KEY_PATH):
         # load files
         print('Loading !')
         cert = x509.load_pem_x509_certificate(
@@ -76,11 +77,11 @@ def generate_or_load():
         # Write our certificate out to disk.
         with open(CA_CERT_PATH, "wb") as f:
             f.write(cert.public_bytes(serialization.Encoding.PEM))
-    return (key, cert)
+    return key, cert
 
 
 def handle_cert_req(CSR_PATH):
-    if(path.exists(CSR_PATH) and path.isfile(CSR_PATH)):
+    if path.exists(CSR_PATH) and path.isfile(CSR_PATH):
         # loading certification request
         print('Handling request')
         csr = x509.load_pem_x509_csr(
@@ -109,8 +110,8 @@ def handle_cert_req(CSR_PATH):
         print('No Request to handle')
 
 
-def handle_req(reqData, cert):
-    csr = x509.load_pem_x509_csr(reqData, default_backend())
+def handle_req(req_data, cert):
+    csr = x509.load_pem_x509_csr(req_data, default_backend())
     cert_client = x509.CertificateBuilder().subject_name(
         csr.subject
     ).issuer_name(
@@ -150,6 +151,14 @@ def handle_cert(data):
 
 class CaServer:
 
+    def __init__(self):
+
+        self.ca_cert = None
+        self.ca_key = None
+        self.ca_pubkey = None
+        self.connection = None
+        self.channel = None
+
     def generate_authority_key(self):
         self.ca_key, self.ca_cert = generate_or_load()
         self.ca_pubkey = self.ca_key.public_key()
@@ -181,26 +190,24 @@ class CaServer:
         def callback(ch, method, properties, body):
             # print(body)
             client_queue, action, data = body.decode().split('::')
-            if (action == 'request'):
-
+            if action == 'request':
                 print('Server get cert request from  '+str(client_queue))
                 data = data.encode()
                 certdata = handle_req(data, self.ca_cert)
                 self.send(client_queue, 'certif', certdata)
-            if(action == 'verify'):
+            if action == 'verify':
                 print('Server get verifying from '+str(client_queue))
-                certif = handle_cert(data.encode())
-                print(certif)
+                certification = handle_cert(data.encode())
                 result = ""
                 try:
                     result = self.ca_pubkey.verify(
-                        certif.signature,
-                        certif.tbs_certificate_bytes,
+                        certification.signature,
+                        certification.tbs_certificate_bytes,
                         # Depends on the algorithm used to create the certificate
                         padding.PKCS1v15(),
-                        certif.signature_hash_algorithm,)
+                        certification.signature_hash_algorithm,)
                     result = "Ok"
-                except Exception:
+                except OpenSSL.crypto.Error as openssl_crypto_error:
                     result = "Not Verified"
                 finally:
                     self.send(client_queue, 'verify', result)

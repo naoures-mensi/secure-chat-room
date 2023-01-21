@@ -24,7 +24,6 @@ class LdapService:
         # organization user's domain
         user_dn = "cn=" + self.username + ",cn=" + self.ldap_group + ",ou=" + \
                   self.ldap_ou + ",dc=tekup,dc=tn"
-        print(user_dn)
         # base domain
         ldap_base_dn = "cn=" + self.ldap_group + \
                        ",ou=" + self.ldap_ou + ",dc=tekup,dc=tn"
@@ -39,18 +38,14 @@ class LdapService:
                 ldap_base_dn, ldap.SCOPE_SUBTREE, search_filter)
             # return all user data results
             ldap_client.unbind_s()
-            print(result)
             return None
         except ldap.INVALID_CREDENTIALS:
             ldap_client.unbind()
-            print("Wrong username or password..")
             return "Wrong username or password.."
         except ldap.SERVER_DOWN:
-            print("Server is down at the moment, please try again later!")
             return "Server is down at the moment, please try again later!"
         except ldap.LDAPError as ldap_error:
             ldap_client.unbind_s()
-            print(ldap_error)
             return "Authentication error!"
 
     def register(self, user):
