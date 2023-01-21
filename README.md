@@ -1,5 +1,6 @@
-# Secure Chat Room
+![logo-header.png](https://www.tek-up.de/plans/img/logo-header.png)
 
+# Secure Chat Room
 ## About
 A secure chat room application written in Python using TKinter & based on RabbitMQ broker using open-LDAP for authentication
 
