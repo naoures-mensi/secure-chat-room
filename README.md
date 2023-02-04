@@ -131,6 +131,38 @@ When we've completed this Code Pattern, you will understand how to:
 
 
 
+# Setup 
+
+1- Open LDAP server in your machine 
+Clone the TalkyWaly repository locally. In a terminal, run
+$ git clone https://github.com/khalilmejri/talkywalky.git
+
+
+Installation
+
+# install node modules for the API
+$ pip install -r requirements.txt --no-index --find-links file:///tmp/packages
+
+2. Run rabbitMQ service
+
+$ systemctl service rabbitmq start
+
+3. Create an Instance of Messaging-server
+$ ./server.py
+
+
+4. Create an Instance of Authority-server
+$ ./CA/ca_server.py
+
+5. Run
+Finally, start the main 
+
+# start app client
+$ ./main.py
+
+
+
+
 
 
 
