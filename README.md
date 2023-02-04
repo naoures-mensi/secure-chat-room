@@ -18,7 +18,29 @@ When we've completed this Code Pattern, you will understand how to:
 
 
 
-![image](https://user-images.githubusercontent.com/53982341/216759744-50177b41-6e80-4265-aefa-8cd3aaeedf9b.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![image](https://user-images.githubusercontent.com/53982341/216759774-58e2f11d-4f7c-4c8d-82f0-0b1dccd028da.png)
+
+
+
+
+
+
+
+
 
 
 
