@@ -18,12 +18,10 @@ When we've completed this Code Pattern, you will understand how to:
 
 
 
+![image](https://user-images.githubusercontent.com/53982341/216759744-50177b41-6e80-4265-aefa-8cd3aaeedf9b.png)
 
 
 
-
-
-![Uploading image.png…]()
 
 
 
