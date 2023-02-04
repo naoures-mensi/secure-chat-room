@@ -2,10 +2,12 @@ cryptography==39.0.0
 openssl-python==0.1.1
 pika==1.3.1
 Pillow==9.4.0
-pycryptodome==3.16.0
-pylint==2.15.10
+pycryptodome==3.17
+pylint==2.16.1
 pyOpenSSL==23.0.0
 python-ldap==3.4.3
 future~=0.18.3
 Eel~=0.15.1
 Jinja2~=3.1.2
+pyotp~=2.8.0
+qrcode~=7.4.1
