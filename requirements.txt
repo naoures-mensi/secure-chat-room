@@ -6,3 +6,6 @@ pycryptodome==3.16.0
 pylint==2.15.10
 pyOpenSSL==23.0.0
 python-ldap==3.4.3
+future~=0.18.3
+Eel~=0.15.1
+Jinja2~=3.1.2
