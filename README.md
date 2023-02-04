@@ -9,9 +9,18 @@ A secure chat room application written in Python using TKinter & based on Rabbit
 When we've completed this Code Pattern, you will understand how to:
 
 - Objective 1: LDAP server configuration, helping us manage user authentication.
-- Objective 2: How to set up an authority server that accepts certification requests, create![image](https://user-images.githubusercontent.com/53982341/216759663-3e07de23-2db9-4831-9d18-cbb62fe07914.png)s them, then signs them in order to verify their state
+- Objective 2: How to set up an authority server that accepts certification requests, creates them, then signs them in order to verify their state
 - Objective 3: How to use RabbitMQ for chatting, which is an enterprise level tool
 - Objective 4: How to use google authentificator to generate Qrcode for users authentification 
+
+
+
+
+
+
+
+
+
 
 
 ![Uploading image.png…]()
