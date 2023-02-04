@@ -21,18 +21,12 @@ Objective 4: How to use google authentificator to generate Qrcode for users auth
 
 
 
-
-
-
-
-
-
 # Dependencies
-RabbitMQ: Messaging Broker based on AMQP protocol
-pycryptodome: well-documented python library for encryption/decryption..
-OpenSSL: a python package that provides a high-level interface to the functions in the OpenSSL library such as X509 certs generation.
-Tkinter: Standard Python interface to the Tk GUI toolkit.
-cryptography: python library for X509 certs with good API
-OpenLDAP: is an implementation under ubuntu for LDAP protocol
-Pika: Rabbitmq python client
-google authentificator : Google Authenticator is a one-time password generator software for two-factor authentication, developed by Google
+- RabbitMQ: Messaging Broker based on AMQP protocol
+-pycryptodome: well-documented python library for encryption/decryption..
+-OpenSSL: a python package that provides a high-level interface to the functions in the OpenSSL library such as X509 certs generation.
+-Tkinter: Standard Python interface to the Tk GUI toolkit.
+-cryptography: python library for X509 certs with good API
+-OpenLDAP: is an implementation under ubuntu for LDAP protocol
+-Pika: Rabbitmq python client
+-google authentificator : Google Authenticator is a one-time password generator software for two-factor authentication, developed by Google
