@@ -32,7 +32,45 @@ When we've completed this Code Pattern, you will understand how to:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ![image](https://user-images.githubusercontent.com/53982341/216759774-58e2f11d-4f7c-4c8d-82f0-0b1dccd028da.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
