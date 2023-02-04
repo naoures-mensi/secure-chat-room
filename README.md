@@ -97,17 +97,17 @@ When we've completed this Code Pattern, you will understand how to:
 ## Dependencies
 - RabbitMQ: Messaging Broker based on AMQP protocol
 
--pycryptodome: well-documented python library for encryption/decryption.
+- pycryptodome: well-documented python library for encryption/decryption.
 
--OpenSSL: a python package that provides a high-level interface to the functions in the OpenSSL library such as X509 certs generation.
+- OpenSSL: a python package that provides a high-level interface to the functions in the OpenSSL library such as X509 certs generation.
 
--Tkinter: Standard Python interface to the Tk GUI toolkit.
+- Tkinter: Standard Python interface to the Tk GUI toolkit.
 
--cryptography: python library for X509 certs with good API
+- cryptography: python library for X509 certs with good API
 
--OpenLDAP: is an implementation under ubuntu for LDAP protocol
+- OpenLDAP: is an implementation under ubuntu for LDAP protocol
 
--Pika: Rabbitmq python client
+- Pika: Rabbitmq python client
 
--google authentificator : Google Authenticator is a one-time password generator software for two-factor authentication, developed by Google
+- Google authentificator : Google Authenticator is a one-time password generator software for two-factor authentication, developed by Google
 
